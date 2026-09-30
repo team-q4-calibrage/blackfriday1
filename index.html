@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Black Friday 50% off limited-time sale.">
+<title>Black Friday — 50% OFF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fc;--paper:#fff;--ink:#181b34;--muted:#5f647f;--line:#e4e7f2;--red:#e5334b;--red-d:#c9213a;--blush:#ffe6ea;--gold:#f7b83d;--sky:#e3ecff;--mint:#dff5ec;--sun:#fff0cf;--lilac:#ece6ff;--shadow:0 18px 45px rgba(24,27,52,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Plus Jakarta Sans",system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+button{font:inherit}a{text-decoration:none;color:inherit}
+.container{width:min(1120px,92%);margin:auto}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* header */
+.brandbar{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brandbar-inner{min-height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.04em}
+.brand-mark{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;background:var(--red);color:#fff}
+.brand-name em{color:var(--red);font-style:normal}
+.brand-nav{display:flex;align-items:center;gap:26px;color:var(--muted);font-size:.9rem;font-weight:600}
+.brand-nav a:hover{color:var(--ink)}
+.header-cta{padding:9px 18px;border-radius:999px;background:var(--ink);color:#fff!important}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--red);color:#fff;border:0;border-radius:999px;padding:14px 30px;font-weight:700;cursor:pointer;transition:.2s;box-shadow:0 10px 24px rgba(229,51,75,.28)}
+.cta:hover{background:var(--red-d);transform:translateY(-2px)}
+.cta.ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.cta.ghost:hover{background:var(--blush)}
+button:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
+
+/* hero */
+.hero{background:linear-gradient(160deg,#fff 0%,var(--blush) 55%,var(--sun) 120%);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:70px 0 80px}
+.badge{display:inline-block;background:var(--gold);color:var(--ink);font-weight:800;padding:6px 15px;border-radius:999px;font-size:.8rem;margin-bottom:18px}
+h1{font-size:clamp(2.8rem,7vw,5.6rem);line-height:.98;letter-spacing:-.045em;font-weight:800}
+h1 span{display:block;color:var(--red)}
+.hero p.lead{max-width:480px;margin:22px 0 28px;color:var(--muted);font-size:1.1rem}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.timer-wrap{margin-top:38px;max-width:460px}
+.timer-label{font-size:.85rem;color:var(--muted);font-weight:700}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px}
+.time-box{background:#fff;border-radius:16px;padding:14px 6px;text-align:center;box-shadow:var(--shadow)}
+.time-box strong{display:block;font-size:clamp(1.6rem,4.5vw,2.3rem);line-height:1;font-variant-numeric:tabular-nums}
+.time-box small{display:block;color:var(--muted);font-size:.72rem;margin-top:6px}
+.hero-art{position:relative;aspect-ratio:1;max-width:520px;width:100%;margin-left:auto}
+.blob{position:absolute;inset:6%;border-radius:50%;background:linear-gradient(140deg,var(--red),#ff8a5c 70%,var(--gold))}
+.blob:after{content:"";position:absolute;inset:-7%;border-radius:50%;border:2px dashed rgba(229,51,75,.35)}
+.hero-art .item{position:absolute;background:#fff;border-radius:26px;box-shadow:var(--shadow);display:grid;place-items:center}
+.hero-art .item{overflow:hidden;padding:6px}
+.hero-art .item img{width:100%;height:100%;object-fit:cover;border-radius:20px;display:block}
+.i1{width:44%;height:44%;left:2%;top:16%;transform:rotate(-6deg)}
+.i2{width:36%;height:36%;right:2%;top:4%;transform:rotate(5deg)}
+.i3{width:40%;height:40%;right:6%;bottom:8%;transform:rotate(-4deg)}
+.i4{width:32%;height:32%;left:20%;bottom:2%;transform:rotate(6deg)}
+.sale-chip{position:absolute;left:38%;top:38%;z-index:2;width:26%;aspect-ratio:1;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;text-align:center;font-weight:800;line-height:1;box-shadow:var(--shadow);transform:rotate(-10deg)}
+.sale-chip b{font-size:clamp(1.4rem,4vw,2.4rem);color:var(--gold)}.sale-chip small{display:block;font-size:.7rem;font-weight:600}
+
+/* trust strip */
+.trust{background:#fff;border-bottom:1px solid var(--line)}
+.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:20px 0;text-align:center;font-weight:700;font-size:.92rem;color:var(--muted)}
+.trust-grid span{color:var(--ink)}
+
+section{padding:88px 0}
+.section-head{text-align:center;margin-bottom:44px}
+.eyebrow{color:var(--red);font-weight:700;font-size:.9rem}
+h2{font-size:clamp(1.9rem,4.5vw,3rem);line-height:1.1;margin-top:6px;letter-spacing:-.03em}
+.section-head p{color:var(--muted);margin:12px auto 0;max-width:560px}
+
+/* products */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.product{background:var(--paper);border-radius:24px;overflow:hidden;box-shadow:var(--shadow);transition:.25s}
+.product:hover{transform:translateY(-6px)}
+.product-img{height:230px;position:relative;display:grid;place-items:center}
+.product-img{overflow:hidden}
+.product-img img{width:100%;height:100%;object-fit:cover;display:block;transition:.5s}
+.product:hover .product-img img{transform:scale(1.06)}
+.product-img{background:var(--blush)}
+.tag{z-index:1;position:absolute;top:14px;left:14px;background:var(--ink);color:#fff;font-size:.75rem;font-weight:800;padding:4px 11px;border-radius:999px}
+.product-body{padding:22px}
+.product h3{font-size:1.1rem}
+.desc{color:var(--muted);font-size:.9rem;margin:8px 0 14px;min-height:58px}
+.price{display:flex;align-items:baseline;gap:10px;margin-bottom:16px}
+.old{color:#9a9eb5;text-decoration:line-through}
+.new{color:var(--red);font-size:1.5rem;font-weight:800}
+.product .cta{width:100%}
+
+/* reviews */
+.reviews{background:#fff}
+.review-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.review{background:var(--bg);border-radius:22px;padding:24px}
+.stars{color:var(--gold);letter-spacing:2px;margin-bottom:10px}
+.review p{color:var(--muted);font-size:.92rem}
+.customer{display:flex;align-items:center;gap:11px;margin-top:18px}
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:.85rem;color:var(--ink)}
+.review:nth-child(1) .avatar{background:var(--blush)}.review:nth-child(2) .avatar{background:var(--sky)}.review:nth-child(3) .avatar{background:var(--mint)}.review:nth-child(4) .avatar{background:var(--sun)}
+.customer small{color:var(--muted)}
+
+/* final */
+.final-card{background:linear-gradient(135deg,var(--red),#ff7a59);color:#fff;border-radius:32px;padding:64px 24px;text-align:center;box-shadow:var(--shadow)}
+.final-card p{max-width:520px;margin:14px auto 26px;opacity:.92}
+.final-card .cta{background:#fff;color:var(--red);box-shadow:0 10px 24px rgba(0,0,0,.15)}
+.final-card .cta:hover{background:var(--sun)}
+.final{padding-top:20px}
+.footer{text-align:center;padding:32px 0;color:var(--muted);font-size:.85rem}
+.mobile-cta{position:fixed;z-index:50;bottom:0;left:0;right:0;padding:10px;background:rgba(255,255,255,.95);border-top:1px solid var(--line);display:none}
+.mobile-cta .cta{width:100%}
+
+@media(max-width:900px){.grid,.review-grid{grid-template-columns:repeat(2,1fr)}.hero-grid{grid-template-columns:1fr;padding:44px 0 56px}.hero-art{margin:0 auto;max-width:420px}}
+@media(max-width:600px){
+.brand-nav a:not(.header-cta){display:none}
+.grid,.review-grid{grid-template-columns:1fr}
+.trust-grid{grid-template-columns:1fr;gap:4px}
+section{padding:64px 0}
+.mobile-cta{display:block}body{padding-bottom:68px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="brandbar">
+  <div class="container brandbar-inner">
+    <a href="#" class="brand" aria-label="VANTA home"><span class="brand-mark">V</span><span class="brand-name">VANTA <em>STORE</em></span></a>
+    <nav class="brand-nav" aria-label="Main navigation">
+      <a href="#products">Deals</a><a href="#reviews">Reviews</a><a class="header-cta" href="#products">Shop Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding:0">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">Limited-time sale</div>
+      <h1>50% off <span>Black Friday</span></h1>
+      <p class="lead">Big savings on the gadgets you actually want. Grab your favourites before this offer disappears.</p>
+      <div class="hero-actions"><a class="cta" href="#products">Shop the sale</a><a class="cta ghost" href="#reviews">Read reviews</a></div>
+      <div class="timer-wrap" aria-live="polite">
+        <div class="timer-label">Offer ends in</div>
+        <div class="timer">
+          <div class="time-box"><strong id="days">00</strong><small>Days</small></div>
+          <div class="time-box"><strong id="hours">00</strong><small>Hours</small></div>
+          <div class="time-box"><strong id="minutes">00</strong><small>Minutes</small></div>
+          <div class="time-box"><strong id="seconds">00</strong><small>Seconds</small></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-art" role="img" aria-label="Headphones, smart watch, camera and classic watch on sale">
+      <div class="blob"></div>
+      <div class="item i1"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Wireless headphones"></div>
+      <div class="item i2"><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=600&q=80" alt="Smart watch"></div>
+      <div class="item i3"><img src="https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&w=600&q=80" alt="Premium camera"></div>
+      <div class="item i4"><img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=600&q=80" alt="Classic wrist watch"></div>
+      <div class="sale-chip"><div><b>-50%</b><small>everything</small></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="trust"><div class="container trust-grid"><div><span>Free shipping</span> on every order</div><div><span>30-day</span> easy returns</div><div><span>Secure</span> checkout</div></div></div>
+
+<main>
+<section class="products" id="products">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Black Friday deals</div>
+      <h2>Shop the best deals</h2>
+      <p>Premium picks at prices that won't last. Save 50% while the offer is active.</p>
+    </div>
+    <div class="grid">
+      <article class="product p1">
+        <div class="product-img"><span class="tag">-50%</span><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80" alt="Wireless headphones" loading="lazy"></div>
+        <div class="product-body"><h3>Wireless Headphones</h3><p class="desc">Immersive sound, deep bass and all-day comfort for work and travel.</p><div class="price"><span class="new">$99</span><span class="old">$199</span></div><button class="cta buy">Buy now</button></div>
+      </article>
+      <article class="product p2">
+        <div class="product-img"><span class="tag">-50%</span><img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=700&q=80" alt="Smart watch" loading="lazy"></div>
+        <div class="product-body"><h3>Smart Watch Pro</h3><p class="desc">Track your day, stay connected and keep your goals within reach.</p><div class="price"><span class="new">$124</span><span class="old">$249</span></div><button class="cta buy">Buy now</button></div>
+      </article>
+      <article class="product p3">
+        <div class="product-img"><span class="tag">-50%</span><img src="https://images.unsplash.com/photo-1516961642265-531546e84af2?auto=format&fit=crop&w=700&q=80" alt="Premium camera" loading="lazy"></div>
+        <div class="product-body"><h3>Premium Camera</h3><p class="desc">Capture sharp, detailed photos and memorable moments wherever you go.</p><div class="price"><span class="new">$449</span><span class="old">$899</span></div><button class="cta buy">Buy now</button></div>
+      </article>
+      <article class="product p4">
+        <div class="product-img"><span class="tag">-50%</span><img src="https://images.unsplash.com/photo-1523170335258-f5ed11844a49?auto=format&fit=crop&w=700&q=80" alt="Classic wrist watch" loading="lazy"></div>
+        <div class="product-body"><h3>Classic Watch</h3><p class="desc">A timeless everyday design with a premium finish and refined details.</p><div class="price"><span class="new">$149</span><span class="old">$299</span></div><button class="cta buy">Buy now</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Customer reviews</div><h2>What our customers say</h2><p>Real experiences from customers who took advantage of our deals.</p></div>
+    <div class="review-grid">
+      <article class="review"><div class="stars">★★★★★</div><p>“The headphones arrived quickly and the sound quality is fantastic. The Black Friday price made it an easy decision.”</p><div class="customer"><div class="avatar">JM</div><div><strong>James M.</strong><br><small>Verified customer</small></div></div></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Exactly as described and beautifully packaged. I saved a lot compared with the normal price.”</p><div class="customer"><div class="avatar">SA</div><div><strong>Sarah A.</strong><br><small>Verified customer</small></div></div></article>
+      <article class="review"><div class="stars">★★★★★</div><p>“Fast delivery, excellent product and a great discount. I would definitely shop here again.”</p><div class="customer"><div class="avatar">DK</div><div><strong>Daniel K.</strong><br><small>Verified customer</small></div></div></article>
+      <article class="review"><div class="stars">★★★★☆</div><p>“The deal was even better than I expected. Everything arrived in perfect condition.”</p><div class="customer"><div class="avatar">MO</div><div><strong>Maria O.</strong><br><small>Verified customer</small></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="final-card">
+      <h2>Save 50% before time runs out</h2>
+      <p>Once the countdown reaches zero, these Black Friday prices will no longer be available.</p>
+      <button class="cta buy">Buy now</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">© 2026 Black Friday Store. Limited-time promotional offer.</footer>
+<div class="mobile-cta"><button class="cta buy">Buy now</button></div>
+
+<script>
+/* Easily change the sale duration here. Demo: 5 hours from page load. */
+const saleEnd = Date.now() + 5 * 60 * 60 * 1000;
+const $ = id => document.getElementById(id);
+const pad = n => String(Math.max(0, n)).padStart(2, "0");
+function updateTimer() {
+  const remaining = Math.max(0, saleEnd - Date.now());
+  const t = Math.floor(remaining / 1000);
+  $("days").textContent = pad(Math.floor(t / 86400));
+  $("hours").textContent = pad(Math.floor((t % 86400) / 3600));
+  $("minutes").textContent = pad(Math.floor((t % 3600) / 60));
+  $("seconds").textContent = pad(t % 60);
+  if (remaining <= 0) {
+    document.querySelector(".timer-label").textContent = "Offer ended";
+    document.querySelectorAll(".buy").forEach(b => { b.disabled = true; b.textContent = "Offer ended"; });
+    clearInterval(timer);
+  }
+}
+const timer = setInterval(updateTimer, 1000);
+updateTimer();
+document.querySelectorAll(".buy").forEach(button => {
+  button.addEventListener("click", () => {
+    if (!button.disabled) alert("Thanks! Connect this button to your checkout or payment page.");
+  });
+});
+</script>
+</body>
+</html>
